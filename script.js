@@ -9,6 +9,15 @@
    .reveal-right, .reveal-scale, dan .divider akan
    muncul dengan animasi saat masuk viewport.
    =================================================== */
+(function initNamaTamu() {
+  var params = new URLSearchParams(window.location.search);
+  var nama = params.get('to');
+  if (nama) {
+    var el = document.getElementById('cover-recipient');
+    if (el) el.textContent = decodeURIComponent(nama);
+  }
+})();
+
 (function initScrollReveal() {
   const observer = new IntersectionObserver(
     (entries) => {
